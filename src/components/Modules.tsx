@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const modules = {
   dashboard: {
     icon: LayoutDashboard,
-    title: "Dashboard Ejecutivo",
+    title: "Dashboard",
     description:
       "Visualiza métricas, ventas, indicadores y alertas importantes en tiempo real.",
 
@@ -117,7 +117,7 @@ const modules = {
 
   inventario: {
     icon: Boxes,
-    title: "Gestión de Inventario",
+    title: "Inventario",
     description:
       "Control total del stock y movimientos de productos.",
 
@@ -184,6 +184,43 @@ const modules = {
       },
     ],
   },
+
+  Parametrizacion: {
+    icon: Settings,
+    title: "Parametrizacion",
+    description:
+      "Configura el sistema según las necesidades de tu empresa.",
+
+    features: [
+      {
+        title: "Empleados",
+        description:
+          "Gestiona usuarios y permisos.",
+      },
+      {
+        title: "IVA",
+        description:
+          "Configura impuestos rápidamente.",
+      },
+      {
+        title: "Timbrado",
+        description:
+          "Administra timbrados y comprobantes.",
+      },
+      {
+        title: "Sucursales",
+        description:
+          "Gestiona múltiples sucursales.",
+      },
+      {
+        title: "Tipos de cambio",
+        description:
+          "Controla distintas monedas y cotizaciones.",
+      },
+    ],
+  },
+
+
 };
 
 type ModuleKey = keyof typeof modules;
@@ -196,15 +233,15 @@ export default function Modules() {
   return (
     <section
       id="modules"
-      className="py-28 pt-32 px-6 max-w-7xl mx-auto"
+      className="py-16 lg:py-28 pt-30 lg:pt-32 px-5 lg:px-4 max-w-7xl mx-auto"
     >
-      <div className="text-center mb-10">
+      <div className="text-center mb-8">
 
-        <h2 className="text-4xl font-bold mb-5">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
           Explora nuestros modulos
         </h2>
 
-        <p className="text-slate-400 text-lg max-w-3xl mx-auto leading-8">
+        <p className="text-slate-400 text-base sm:text-lg max-w-3xl mx-auto leading-7 sm:leading-8">
           Cada empresa tiene procesos diferentes. Desarrollamos
           modulos empresariales adaptadas a las necesidades
           de cada negocio para optimizar su gestión.
@@ -212,7 +249,7 @@ export default function Modules() {
 
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4 mb-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-wrap lg:justify-center gap-4 mb-6">
 
         {(Object.keys(modules) as ModuleKey[]).map((key) => {
 
@@ -237,7 +274,12 @@ export default function Modules() {
                 duration: 0.2,
               }}
               
-              className={`relative flex items-center gap-3 px-8 py-4 rounded-full border transition-all duration-300 overflow-hidden ${
+              className={`relative flex items-center justify-center gap-3
+                px-8 py-4
+                rounded-full
+                border
+                transition-all duration-300
+                overflow-hidden${
                 active === key
                   ? "border-transparent text-black"
                   : "border-slate-700 text-slate-300 hover:border-slate-500 hover:text-white"
@@ -247,7 +289,7 @@ export default function Modules() {
               {active === key && (
                 <motion.div
                   layoutId="active-tab"
-                  className="absolute inset-[2px] rounded-full bg-cyan-500"
+                  className="absolute inset-[2px] rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-500"
                   transition={{
                     type: "spring",
                     stiffness: 350,
@@ -259,14 +301,14 @@ export default function Modules() {
             <div className="relative z-10 flex items-center gap-3">
 
               <Icon
-                size={20}
+                size={18}
                 className={`relative z-10 ${
                   active === key ? "text-black" : "text-current"
                 }`}
               />
 
               <span
-                className={`relative z-10 font-medium ${
+                className={`relative z-10 text-sm lg:text-base font-medium ${
                   active === key ? "text-black" : ""
                 }`}
               >
@@ -305,22 +347,22 @@ export default function Modules() {
             duration: 0.35,
             ease: "easeOut",
           }}
-          className="rounded-[32px] border border-slate-800 bg-gradient-to-b from-slate-950 to-slate-900 p-6"
+          className="rounded-[32px] border border-slate-800 bg-gradient-to-b from-slate-950 to-slate-900 p-5 lg:p-6"
         >
         
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
 
-          <h3 className="text-4xl font-bold mb-5">
+          <h3 className="text-3xl sm:text-3xl lg:text-2l font-bold mb-4">
             {current.title}
           </h3>
 
-          <p className="text-slate-400 text-xl">
+          <p className="text-slate-400 text-base sm:text-lg lg:text-l">
             {current.description}
           </p>
 
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8">
+        <div className="grid lg:grid-cols-5 gap-5 lg:gap-2">
                     {current.features.map((feature, index) => (
 
             <motion.div
@@ -349,7 +391,7 @@ export default function Modules() {
               }`}
             >
 
-              <div className="w-14 h-14 mx-auto rounded-full border-2 border-cyan-500 flex items-center justify-center mb-8">
+              <div className="w-14 h-14 mx-auto rounded-full border-2 border-cyan-500 flex items-center justify-center mb-2">
 
                 <Check
                   size={26}
@@ -358,11 +400,11 @@ export default function Modules() {
 
               </div>
 
-              <h4 className="text-2xl font-semibold mb-5 leading-snug">
+              <h4 className="text-2xl font-semibold mb-1 leading-snug">
                 {feature.title}
               </h4>
 
-              <p className="text-slate-400 leading-8">
+              <p className="text-slate-400 text-sm lg:text-base leading-5 lg:leading-7">
                 {feature.description}
               </p>
 

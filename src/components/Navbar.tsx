@@ -21,15 +21,36 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1600px] mx-auto px-10 py-6 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-10 py-4 lg:py-6 flex flex-col md:flex-row md:items-center md:justify-between">
 
         {/* Logo */}
         <a
           href="#"
-          className="text-white text-[38px] font-extrabold tracking-tight"
+          className="text-white text-center lg:text-left text-2xl sm:text-3xl lg:text-[38px] font-extrabold tracking-tight"
         >
           INVICTA SYSTEMS
         </a>
+
+        {/* Menú móvil */}
+        <div className="md:hidden overflow-x-auto scrollbar-hide">
+          <div className="flex gap-6 min-w-max pt-4">
+            <a href="#benefits" className="text-slate-300 whitespace-nowrap">
+              Soluciones
+            </a>
+
+            <a href="#modules" className="text-slate-300 whitespace-nowrap">
+              Módulos
+            </a>
+
+            <a href="#plans" className="text-slate-300 whitespace-nowrap">
+              Planes
+            </a>
+
+            <a href="#contact" className="text-slate-300 whitespace-nowrap">
+              Contacto
+            </a>
+          </div>
+        </div>
 
         {/* Menú */}
         <div className="hidden md:flex items-center gap-12">
