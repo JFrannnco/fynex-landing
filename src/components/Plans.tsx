@@ -12,6 +12,8 @@ const plans = [
     icon: Rocket,
     title: "Esencial",
     subtitle: "Ideal para pequeñas empresas que desean comenzar su digitalización.",
+    price: "300.000",
+    period: "/mes",
     featured: false,
     badge: "",
     features: [
@@ -29,6 +31,8 @@ const plans = [
     title: "Profesional",
     subtitle:
       "La solución más completa para empresas que necesitan controlar toda su operación.",
+    price: "650.000",
+    period: "/mes",      
     featured: true,
     features: [
       "Dashboard ejecutivo",
@@ -47,6 +51,8 @@ const plans = [
     title: "Empresarial",
     subtitle:
       "Desarrollo totalmente personalizado según los procesos de tu empresa.",
+    price: "1.000.000",
+    period: "/mes",        
     featured: false,
     badge: "",
     button: "Solicitar propuesta",
@@ -65,7 +71,7 @@ export default function Plans() {
 return (
 <section
   id="plans"
-  className="relative py-30 overflow-hidden bg-slate-950"
+  className="relative py-30 lg:py-28 overflow-hidden bg-slate-950"
 >
 
   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#0ea5e915,transparent_35%)]" />
@@ -78,10 +84,10 @@ return (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: .5 }}
-      className="text-center mb-8"
+      className="text-center mb-6"
     >
 
-      <h2 className="text-5xl font-bold mb-5">
+      <h2 className="text-4xl font-bold mb-5 lg:text-4xl">
 
         Nuestros{" "}
 
@@ -97,7 +103,7 @@ return (
 
     </motion.div>
 
-    <div className="grid lg:grid-cols-3 gap-6 items-end">
+    <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-end">
 
       {plans.map((plan, index) => {
 
@@ -183,7 +189,7 @@ return (
                   <div className="flex justify-center items-end gap-2">
                             
                     <span className="text-5xl font-bold">
-                      $15
+                      {plan.price}
                     </span>
                             
                     <span
@@ -193,7 +199,7 @@ return (
                           : "text-slate-400"
                       }`}
                     >
-                      /mes
+                      {plan.period}
                     </span>
                     
                   </div>

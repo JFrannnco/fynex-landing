@@ -106,7 +106,7 @@ export default function Hero() {
                  <img
                   src="/dashboard.png"
                   alt="Dashboard Invicta Systems"
-                  className="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[520px] lg:max-w-[750px] mx-auto h-auto object-contain"
+                  className="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[520px] lg:max-w-[950px] mx-auto h-auto object-contain"
                  />
 
               </div>

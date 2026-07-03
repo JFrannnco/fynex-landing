@@ -33,10 +33,10 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: .5 }}
-          className="text-center mb-10"
+          className="text-center mb-6"
         >
 
-          <h2 className="text-5xl font-bold mb-5">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
 
             Hablemos sobre tu{" "}
 
@@ -46,14 +46,14 @@ export default function Contact() {
 
           </h2>
 
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-400 text-base lg:text-lg max-w-2xl mx-auto">
             Descubre cómo Invicta Systems puede ayudarte
             a digitalizar y/o optimizar los procesos de tu empresa.
           </p>
 
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1.2fr_.8fr] gap-20 items-start">
+        <div className="grid lg:grid-cols-[1.2fr_.8fr] gap-12 lg:gap-16 items-start">
 
           {/* FORMULARIO */}
 
@@ -81,7 +81,7 @@ export default function Contact() {
               <input
                 type="text"
                 placeholder="Nombre completo"
-                className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-16 outline-none focus:border-cyan-400 transition"
+                className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-14 outline-none focus:border-cyan-400 transition"
               />
 
             </div>
@@ -96,7 +96,7 @@ export default function Contact() {
               <input
                 type="text"
                 placeholder="Empresa o Negocio"
-                className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-16 outline-none focus:border-cyan-400 transition"
+                className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-14 outline-none focus:border-cyan-400 transition"
               />
 
             </div>
@@ -111,7 +111,7 @@ export default function Contact() {
               <input
                 type="email"
                 placeholder="Correo electrónico"
-                className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-16 outline-none focus:border-cyan-400 transition"
+                className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-14 outline-none focus:border-cyan-400 transition"
               />
 
             </div>
@@ -126,7 +126,7 @@ export default function Contact() {
               <input
                 type="text"
                 placeholder="Teléfono"
-                className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-16 outline-none focus:border-cyan-400 transition"
+                className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-14 outline-none focus:border-cyan-400 transition"
               />
 
             </div>
@@ -139,7 +139,7 @@ export default function Contact() {
               />
 
               <textarea
-                rows={7}
+                rows={6}
                 placeholder="Cuéntanos sobre tu proyecto..."
                 className="w-full resize-none bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 pt-5 outline-none focus:border-cyan-400 transition"
               />
@@ -153,7 +153,7 @@ export default function Contact() {
                 scale: .98,
               }}
               type="submit"
-              className="w-full h-16 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-lg transition"
+              className="w-full h-14 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-lg transition"
             >
               Enviar Consulta
             </motion.button>
@@ -174,7 +174,7 @@ export default function Contact() {
 
           >
 
-            <h3 className="text-4xl font-bold mb-4">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-4">
 
               Conecta con{" "}
 
@@ -197,13 +197,13 @@ export default function Contact() {
               {/* WhatsApp */}
 
               <a
-                href="https://wa.me/595972377188"
+                href="https://wa.me/595981425699"
                 className="group flex items-center justify-between pb-6 border-b border-slate-800 hover:translate-x-2 transition-all duration-200"
               >
 
                 <div className="flex items-center gap-5">
 
-                  <div className="w-16 h-16 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
+                  <div className="w-16 h-14 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
 
                     <FaWhatsapp
                       size={30}
@@ -222,7 +222,7 @@ export default function Contact() {
 
                     <p className="text-slate-400">
 
-                      +595 XXX XXX XXX
+                      +595 981 425699
 
                     </p>
 
@@ -230,7 +230,7 @@ export default function Contact() {
 
                 </div>
 
-                <span className="text-cyan-400 text-3xl">
+                <span className="text-cyan-400 text-2xl">
 
                   →
 
@@ -247,7 +247,7 @@ export default function Contact() {
 
                 <div className="flex items-center gap-5">
 
-                  <div className="w-16 h-16 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
+                  <div className="w-16 h-14 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
 
                     <Mail
                       size={30}
@@ -266,7 +266,7 @@ export default function Contact() {
 
                     <p className="text-slate-400">
 
-                      contacto@invictasystems.com
+                      contacto@invictasystems.com.py
 
                     </p>
 
@@ -281,8 +281,9 @@ export default function Contact() {
                 </span>
 
               </a>
-              {/* LinkedIn */}
 
+              {/* LinkedIn */}
+              {/*
               <a
                 href="#"
                 className="group flex items-center justify-between pb-6 border-b border-slate-800"
@@ -290,7 +291,7 @@ export default function Contact() {
 
                 <div className="flex items-center gap-5">
 
-                  <div className="w-16 h-16 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
+                  <div className="w-16 h-14 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
 
                     <FaLinkedin
                       size={30}
@@ -318,9 +319,10 @@ export default function Contact() {
                 </span>
 
               </a>
+              */}
 
               {/* Instagram */}
-
+              {/*    
               <a
                 href="#"
                 className="group flex items-center justify-between pb-6 border-b border-slate-800"
@@ -328,7 +330,7 @@ export default function Contact() {
 
                 <div className="flex items-center gap-5">
 
-                  <div className="w-16 h-16 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
+                  <div className="w-16 h-14 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
 
                     <FaInstagram
                       size={30}
@@ -356,9 +358,9 @@ export default function Contact() {
                 </span>
 
               </a>
-
+              */}
               {/* Facebook */}
-
+              {/*
               <a
                 href="#"
                 className="group flex items-center justify-between pb-2"
@@ -366,7 +368,7 @@ export default function Contact() {
 
                 <div className="flex items-center gap-5">
 
-                  <div className="w-16 h-16 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
+                  <div className="w-16 h-14 rounded-2xl border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
 
                     <FaFacebook
                       size={30}
@@ -394,7 +396,7 @@ export default function Contact() {
                 </span>
 
               </a>
-
+              */}    
             </div>
 
           </motion.div>
