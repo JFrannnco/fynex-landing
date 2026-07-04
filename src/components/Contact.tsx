@@ -321,7 +321,7 @@ export default function Contact() {
               {/* Email */}
 
               <a
-                href="#"
+                href="mailto:invicta.systemspy@gmail.com"
                 className="group flex items-center justify-between pb-6 border-b border-slate-800"
               >
 
