@@ -324,7 +324,9 @@ export default function Contact() {
 
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=invicta.systemspy@gmail.com"
-                className="group flex items-center justify-between pb-6 border-b border-slate-800"
+                className="group flex items-center justify-between pb-6 border-b border-slate-800 block"
+                target="_blank"
+                rel="noopener noreferrer"
               >
 
                 <div className="flex items-center gap-5">
