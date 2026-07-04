@@ -1,3 +1,5 @@
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
 import {
@@ -15,6 +17,61 @@ import {
 
 
 export default function Contact() {
+  const form = useRef<HTMLFormElement>(null);
+
+  const [loading, setLoading] = useState(false);
+
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({
+    type: null,
+    message: "",
+  });
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    setLoading(true);
+    setStatus({
+      type: null,
+      message: "",
+    });
+
+    try {
+
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      form.current.reset();
+
+      setStatus({
+        type: "success",
+        message: "Consulta enviada correctamente. Nos pondremos en contacto contigo muy pronto.",
+      });
+
+    } catch (error) {
+
+      console.error(error);
+
+      setStatus({
+        type: "error",
+        message: "Ocurrió un error al enviar la consulta. Inténtalo nuevamente.",
+      });
+
+    } finally {
+
+      setLoading(false);
+
+    }
+  }
+
   return (
     <section
       id="contact"
@@ -66,6 +123,9 @@ export default function Contact() {
 
             className="space-y-4"
 
+            ref={form}
+            onSubmit={sendEmail}
+
           >
 
             <div className="relative">
@@ -78,6 +138,8 @@ export default function Contact() {
               <input
                 type="text"
                 placeholder="Nombre completo"
+                name="name"
+                required
                 className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-14 outline-none focus:border-cyan-400 transition"
               />
 
@@ -92,6 +154,8 @@ export default function Contact() {
 
               <input
                 type="text"
+                name="company"
+                required                
                 placeholder="Empresa o Negocio"
                 className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-14 outline-none focus:border-cyan-400 transition"
               />
@@ -107,6 +171,8 @@ export default function Contact() {
 
               <input
                 type="email"
+                name="email"
+                required
                 placeholder="Correo electrónico"
                 className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-14 outline-none focus:border-cyan-400 transition"
               />
@@ -122,6 +188,8 @@ export default function Contact() {
 
               <input
                 type="text"
+                name="phone"
+                required
                 placeholder="Teléfono"
                 className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 h-14 outline-none focus:border-cyan-400 transition"
               />
@@ -137,6 +205,8 @@ export default function Contact() {
 
               <textarea
                 rows={6}
+                name="message"
+                required                
                 placeholder="Cuéntanos sobre tu proyecto..."
                 className="w-full resize-none bg-slate-900 border border-slate-800 rounded-2xl pl-14 pr-5 pt-5 outline-none focus:border-cyan-400 transition"
               />
@@ -150,10 +220,23 @@ export default function Contact() {
                 scale: .98,
               }}
               type="submit"
-              className="w-full h-14 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-lg transition"
+              disabled={loading}
+              className="w-full h-14 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:opacity-60 disabled:cursor-not-allowed text-black font-semibold transition duration-300"
             >
-              Enviar Consulta
+              {loading ? "Enviando..." : "Enviar Consulta"}
             </motion.button>
+
+            {status.type && (
+              <p
+                className={`mt-4 text-sm text-center ${
+                  status.type === "success"
+                    ? "text-green-400"
+                    : "text-red-400"
+                }`}
+              >
+                {status.message}
+              </p>
+            )}
 
           </motion.form>
 
