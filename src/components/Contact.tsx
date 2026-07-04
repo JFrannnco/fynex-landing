@@ -346,7 +346,7 @@ export default function Contact() {
 
                     <p className="text-slate-400">
 
-                      contacto@invictasystems.com.py
+                      invicta.systems@gmail.com
 
                     </p>
 
