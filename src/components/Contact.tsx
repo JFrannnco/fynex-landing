@@ -278,7 +278,9 @@ export default function Contact() {
 
               <a
                 href="https://wa.me/595981425699"
-                className="group flex items-center justify-between pb-6 border-b border-slate-800 hover:translate-x-2 transition-all duration-200"
+                className="group flex items-center justify-between pb-6 border-b border-slate-800 hover:translate-x-2 transition-all duration-200 block"
+                target="_blank"
+                rel="noopener noreferrer"
               >
 
                 <div className="flex items-center gap-5">
@@ -321,7 +323,7 @@ export default function Contact() {
               {/* Email */}
 
               <a
-                href="mailto:invicta.systemspy@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=invicta.systemspy@gmail.com"
                 className="group flex items-center justify-between pb-6 border-b border-slate-800"
               >
 
