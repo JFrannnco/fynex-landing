@@ -73,7 +73,7 @@ export default function Hero() {
           </div>
 
           {/* Dashboard */}
-          <div className="hidden lg:flex relative justify-center lg:translate-x-12">
+          <div className="hidden lg:flex relative justify-center lg:pr-20">
 
             {/* Glow */}
             <div className="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[750px] lg:h-[750px] rounded-full bg-cyan-500/20 blur-[120px]" />
@@ -106,7 +106,7 @@ export default function Hero() {
                  <img
                   src="/dashboard.png"
                   alt="Dashboard Invicta Systems"
-                  className="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[520px] lg:max-w-[950px] mx-auto h-auto object-contain"
+                  className="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[520px] lg:max-w-[950px] mx-auto h-auto object-contain "
                  />
 
               </div>

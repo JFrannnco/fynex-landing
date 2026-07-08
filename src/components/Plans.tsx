@@ -6,6 +6,7 @@ import {
   Check,
   Shield,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const plans = [
   {
@@ -31,6 +32,7 @@ const plans = [
     title: "Profesional",
     subtitle:
       "La solución más completa para empresas que necesitan controlar toda su operación.",
+    badge: "Más elegido",
     price: "650.000",
     period: "/mes",      
     featured: true,
@@ -51,7 +53,7 @@ const plans = [
     title: "Empresarial",
     subtitle:
       "Desarrollo totalmente personalizado según los procesos de tu empresa.",
-    price: "1.000.000",
+    price: "950.000",
     period: "/mes",        
     featured: false,
     badge: "",
@@ -68,6 +70,26 @@ const plans = [
 ];
 
 export default function Plans() {
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const displayPlans = isMobile
+    ? [plans[2], plans[1], plans[0]]
+    : plans;  
+
+
 return (
 <section
   id="plans"
@@ -105,7 +127,7 @@ return (
 
     <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-end">
 
-      {plans.map((plan, index) => {
+      {displayPlans.map((plan, index) => {
 
         const Icon = plan.icon;
 
@@ -128,7 +150,7 @@ return (
                 damping: 25,
               },
             }}
-            className={`rounded-2xl border border-slate-800 hover:border-cyan-400/50 transition-colors duration-200
+            className={`relative rounded-2xl border border-slate-800 hover:border-cyan-400/50 transition-colors duration-200
 
             ${
               plan.featured
@@ -138,6 +160,12 @@ return (
 
             px-8`}
           >
+
+            {plan.badge && (
+                <div className="absolute top-4 right-4 bg-cyan-500 text-black text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                  {plan.badge}
+                </div>
+              )}
 
             <div className="flex justify-center mb-5">
 
